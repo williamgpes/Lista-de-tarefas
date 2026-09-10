@@ -53,6 +53,23 @@ export default function App() {
     setTarefas((atual) => atual.filter((tarefa) => !tarefa.concluida));
   }
 
+  // Move a tarefa uma posição para cima ou para baixo na lista.
+  // direcao é -1 (sobe) ou 1 (desce).
+  function moverTarefa(id, direcao) {
+    setTarefas((atual) => {
+      const indice = atual.findIndex((tarefa) => tarefa.id === id);
+      const novoIndice = indice + direcao;
+
+      // Não faz nada se já estiver no topo ou no fim da lista.
+      if (novoIndice < 0 || novoIndice >= atual.length) return atual;
+
+      const copia = [...atual];
+      // Troca a tarefa de posição com a vizinha.
+      [copia[indice], copia[novoIndice]] = [copia[novoIndice], copia[indice]];
+      return copia;
+    });
+  }
+
   // Filtra a lista de acordo com a aba selecionada, sem alterar o estado original.
   const tarefasFiltradas = tarefas.filter((tarefa) => {
     if (filtro === "ativas") return !tarefa.concluida;
@@ -113,13 +130,33 @@ export default function App() {
                   {tarefa.texto}
                 </span>
               </label>
-              <button
-                className="remover"
-                onClick={() => removerTarefa(tarefa.id)}
-                aria-label={`Remover "${tarefa.texto}"`}
-              >
-                ×
-              </button>
+              <div className="acoes">
+                {filtro === "todas" && (
+                  <>
+                    <button
+                      className="mover"
+                      onClick={() => moverTarefa(tarefa.id, -1)}
+                      aria-label={`Mover "${tarefa.texto}" para cima`}
+                    >
+                      ↑
+                    </button>
+                    <button
+                      className="mover"
+                      onClick={() => moverTarefa(tarefa.id, 1)}
+                      aria-label={`Mover "${tarefa.texto}" para baixo`}
+                    >
+                      ↓
+                    </button>
+                  </>
+                )}
+                <button
+                  className="remover"
+                  onClick={() => removerTarefa(tarefa.id)}
+                  aria-label={`Remover "${tarefa.texto}"`}
+                >
+                  ×
+                </button>
+              </div>
             </li>
           ))}
         </ul>

@@ -120,6 +120,28 @@
   color: #9aa596;
 }
 
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.mover {
+  background: none;
+  border: none;
+  color: #9aa596;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 6px;
+  border-radius: 4px;
+}
+
+.mover:hover {
+  background: #eef0ec;
+  color: #223027;
+}
+
 .remover {
   background: none;
   border: none;
