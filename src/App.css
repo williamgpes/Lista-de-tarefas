@@ -1,0 +1,163 @@
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 20px;
+}
+
+.cartao {
+  width: 100%;
+  max-width: 460px;
+  background: #fbfbf9;
+  border: 1px solid #d7ddd2;
+  border-radius: 10px;
+  padding: 32px;
+}
+
+.cabecalho h1 {
+  margin: 0 0 4px;
+  font-size: 26px;
+  color: #223027;
+}
+
+.subtitulo {
+  margin: 0 0 24px;
+  color: #6b7568;
+  font-size: 15px;
+}
+
+.formulario {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.formulario input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #cdd4c6;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.formulario input:focus {
+  outline: 2px solid #4c7a5c;
+  outline-offset: 1px;
+}
+
+.formulario button {
+  padding: 10px 16px;
+  background: #4c7a5c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background: #3f6a4d;
+}
+
+.filtros {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.filtro {
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid #d7ddd2;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #6b7568;
+  cursor: pointer;
+}
+
+.filtro.ativo {
+  background: #223027;
+  color: #fff;
+  border-color: #223027;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #e5e9e0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e9e0;
+}
+
+.item label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.item input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #4c7a5c;
+}
+
+.texto {
+  font-size: 15px;
+}
+
+.texto.concluida {
+  text-decoration: line-through;
+  color: #9aa596;
+}
+
+.remover {
+  background: none;
+  border: none;
+  color: #b3b9ad;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.remover:hover {
+  color: #c0392b;
+}
+
+.vazio {
+  padding: 24px 0;
+  text-align: center;
+  color: #9aa596;
+  font-size: 14px;
+}
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e9e0;
+  font-size: 13px;
+  color: #6b7568;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #4c7a5c;
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: underline;
+  padding: 0;
+}
