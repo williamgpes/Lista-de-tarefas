@@ -11,20 +11,48 @@
   max-width: 460px;
   background: #fbfbf9;
   border: 1px solid #d7ddd2;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 32px;
+  box-shadow: 0 1px 2px rgba(34, 48, 39, 0.04), 0 8px 24px rgba(34, 48, 39, 0.06);
 }
 
 .cabecalho h1 {
   margin: 0 0 4px;
   font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: #223027;
 }
 
 .subtitulo {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   color: #6b7568;
   font-size: 15px;
+}
+
+.progresso {
+  margin-bottom: 24px;
+}
+
+.progresso-trilha {
+  height: 6px;
+  background: #e5e9e0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progresso-barra {
+  height: 100%;
+  background: #4c7a5c;
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.progresso-rotulo {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #8a9384;
 }
 
 .formulario {
@@ -46,6 +74,28 @@
   outline-offset: 1px;
 }
 
+.select-prioridade {
+  padding: 10px 8px;
+  border: 1px solid #cdd4c6;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+  color: #223027;
+}
+
+.select-prioridade-item {
+  font-size: 12px;
+  padding: 4px 4px;
+  border-color: #e5e9e0;
+}
+
+.bolinha-prioridade {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 .formulario button {
   padding: 10px 16px;
   background: #4c7a5c;
@@ -53,7 +103,9 @@
   border: none;
   border-radius: 6px;
   font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
 .formulario button:hover {
@@ -74,12 +126,22 @@
   font-size: 13px;
   color: #6b7568;
   cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.filtro:hover {
+  border-color: #4c7a5c;
+  color: #223027;
 }
 
 .filtro.ativo {
   background: #223027;
   color: #fff;
   border-color: #223027;
+}
+
+.filtro.ordenar {
+  margin-left: auto;
 }
 
 .lista {
@@ -89,12 +151,31 @@
   border-top: 1px solid #e5e9e0;
 }
 
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 12px 6px;
+  margin: 0 -6px;
   border-bottom: 1px solid #e5e9e0;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+  animation: entrada 0.2s ease;
+}
+
+.item:hover {
+  background-color: #f2f4ef;
 }
 
 .item label {
@@ -113,6 +194,7 @@
 
 .texto {
   font-size: 15px;
+  transition: color 0.15s ease;
 }
 
 .texto.concluida {
@@ -127,32 +209,38 @@
 }
 
 .mover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   color: #9aa596;
-  font-size: 14px;
-  line-height: 1;
   cursor: pointer;
-  padding: 6px 6px;
+  padding: 6px;
   border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .mover:hover {
-  background: #eef0ec;
+  background: #e5e9e0;
   color: #223027;
 }
 
 .remover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   color: #b3b9ad;
-  font-size: 20px;
-  line-height: 1;
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 6px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .remover:hover {
+  background: #fbeae8;
   color: #c0392b;
 }
 
